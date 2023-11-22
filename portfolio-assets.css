@@ -17,6 +17,10 @@ html {
         'opsz'20
 }
 
+.hero-header {
+    pointer-events: none; 
+}
+
 /*blurHash fade in*/
 
 img {
