@@ -17,6 +17,11 @@ html {
         'opsz'20
 }
 
+/* Initially hide main content */
+#main-content {
+    visibility: hidden;
+}
+
 .hero-header {
     pointer-events: none; 
 }
