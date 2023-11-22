@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
             loader.style.display = 'none';
             mainContent.style.visibility = 'visible'; // Reveal the main content
         });
-    }, 4000); // Adjust timing as necessary
+    }, 1000); // Adjust timing as necessary
 });
 
 //image loading, lazy for 'lazy' class, eager for key images, blurHash
