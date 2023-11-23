@@ -1,16 +1,3 @@
-window.addEventListener('load', function() {
-    setTimeout(() => {
-        const loader = document.getElementById('loader');
-        const mainContent = document.getElementById('main-content'); // Ensure this ID matches your main content container
-
-        loader.classList.add('fade-out');
-        loader.addEventListener('animationend', () => {
-            loader.style.display = 'none';
-            mainContent.style.visibility = 'visible'; // Reveal the main content
-        });
-    }, 1000); // Adjust timing as necessary
-});
-
 //image loading, lazy for 'lazy' class, eager for key images, blurHash
 
 document.addEventListener('DOMContentLoaded', () => {
