@@ -175,6 +175,8 @@ $('[data-click="faq"]').click(function () {
     }
 });
 
+//---------------------------------------------------------------------------------
+
 //loader animation
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -190,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
         currentIndex = (currentIndex + 1) % bars.length;
     };
     highlightBar();
-    setInterval(highlightBar, 200); // Adjust to match the animation speed
+    setInterval(highlightBar, 2200 / bars.length); // Sync with CSS animation duration
 });
 
 window.addEventListener('load', function () {
