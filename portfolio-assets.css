@@ -51,10 +51,11 @@ img.loaded {
     height: 40px;
     margin: 0 2px;
     background-color: #BCC2FF;
-    animation: wave 2.2s infinite ease-in-out;
+    animation: wave 2s infinite ease-in-out;
     opacity: 0.4;
     will-change: transform, opacity; /* Optimized for animation */
     border-radius: 10px; /* Reduced for testing */
+    transform: scaleY(0.5) translateZ(0); /* Added translateZ(0) for hardware acceleration */
 }
 
 
@@ -63,17 +64,17 @@ img.loaded {
 }
 
 
-.rainbow-wave-loader div:nth-child(2) { animation-delay: -2s; }
-.rainbow-wave-loader div:nth-child(3) { animation-delay: -1.8s; }
-.rainbow-wave-loader div:nth-child(4) { animation-delay: -1.6s; }
-.rainbow-wave-loader div:nth-child(5) { animation-delay: -1.4s; }
-.rainbow-wave-loader div:nth-child(6) { animation-delay: -1.2s; }
-.rainbow-wave-loader div:nth-child(7) { animation-delay: -1.0s; }
-.rainbow-wave-loader div:nth-child(8) { animation-delay: -0.8s; }
-.rainbow-wave-loader div:nth-child(9) { animation-delay: -0.6s; }
-.rainbow-wave-loader div:nth-child(10) { animation-delay: -0.4s; }
+.rainbow-wave-loader div:nth-child(2) { animation-delay: -1.8s; }
+.rainbow-wave-loader div:nth-child(3) { animation-delay: -1.6s; }
+.rainbow-wave-loader div:nth-child(4) { animation-delay: -1.4s; }
+.rainbow-wave-loader div:nth-child(5) { animation-delay: -1.2s; }
+.rainbow-wave-loader div:nth-child(6) { animation-delay: -1.0s; }
+.rainbow-wave-loader div:nth-child(7) { animation-delay: -0.8s; }
+.rainbow-wave-loader div:nth-child(8) { animation-delay: -0.6s; }
+.rainbow-wave-loader div:nth-child(9) { animation-delay: -0.4s; }
+.rainbow-wave-loader div:nth-child(10) { animation-delay: -0.2s; }
 
-@keyframes wave {
+/*@keyframes wave {
     0%, 100% {
         transform: scaleY(0.5);
         opacity: 0.4;
@@ -81,6 +82,17 @@ img.loaded {
     50% {
         transform: scaleY(1.2);
         opacity: 1;
+    }
+}*/
+
+@keyframes wave {
+    0%, 100% {
+        transform: scaleY(0.6) translateZ(0); /* Less extreme scaling */
+        opacity: 0.6;
+    }
+    50% {
+        transform: scaleY(0.9) translateZ(0);
+        opacity: 0.9;
     }
 }
 
