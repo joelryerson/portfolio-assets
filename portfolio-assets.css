@@ -50,11 +50,13 @@ img.loaded {
     width: 4px;
     height: 40px;
     margin: 0 2px;
-    border-radius: 28px;
-    background-color: #BCC2FF; /* Default color for all bars */
+    background-color: #BCC2FF;
     animation: wave 2.2s infinite ease-in-out;
-    opacity: 0.4; /* Base opacity */
+    opacity: 0.4;
+    will-change: transform, opacity; /* Optimized for animation */
+    border-radius: 10px; /* Reduced for testing */
 }
+
 
 .highlight {
     background-color: #DFE0FF; /* Highlight color */
