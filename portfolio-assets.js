@@ -177,37 +177,42 @@ $('[data-click="faq"]').click(function () {
 
 //---------------------------------------------------------------------------------
 
-//loader animation
+//preloader animation
 
 document.addEventListener('DOMContentLoaded', function () {
-    const bars = document.querySelectorAll('.rainbow-wave-loader div');
-    let currentIndex = 0;
-    const highlightBar = () => {
-        bars.forEach((bar, index) => {
-            bar.classList.remove('highlight');
-            if (index === currentIndex) {
-                bar.classList.add('highlight');
-            }
-        });
-        currentIndex = (currentIndex + 1) % bars.length;
-    };
-    highlightBar();
-    setInterval(highlightBar, 2200 / bars.length); // Sync with CSS animation duration
+    // Detect if the browser is Chrome
+    const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+
+    if (!isChrome) {
+        // Only run the animation if it's not Chrome
+        const bars = document.querySelectorAll('.rainbow-wave-loader div');
+        let currentIndex = 0;
+        const highlightBar = () => {
+            bars.forEach((bar, index) => {
+                bar.classList.remove('highlight');
+                if (index === currentIndex) {
+                    bar.classList.add('highlight');
+                }
+            });
+            currentIndex = (currentIndex + 1) % bars.length;
+        };
+        highlightBar();
+        setInterval(highlightBar, 2200 / bars.length); // Sync with CSS animation duration
+    }
 });
 
+//preloader fade out and display to none
+
 window.addEventListener('load', function () {
-    console.log("Page loaded, starting timeout for loader fade-out.");
     setTimeout(() => {
         const loader = document.getElementById('loader');
         if (loader) {
-            console.log("Fading out loader now.");
             loader.classList.add('fade-out');
         } else {
             console.error("Loader element not found.");
         }
 
         loader.addEventListener('animationend', () => {
-            console.log("Fade-out animation completed, setting loader to display: none.");
             loader.style.display = 'none';
         });
     }, 4000); // Adjust this time as needed
