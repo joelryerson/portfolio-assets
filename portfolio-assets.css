@@ -152,7 +152,7 @@ img.loaded {
 
 
 .changing-radius {
-    transition: border-radius 0.3s ease-out;
+    transition: border-radius 0.6s ease-out;
 }
 
 /* element fade-in effect on scroll */
@@ -160,7 +160,7 @@ img.loaded {
 .fade-effect {
     opacity: 0;
     transform: translateY(100px);
-    transition: opacity .6s linear, transform .6s cubic-bezier(0.26, 0.67, 0.48, 0.91);
+    transition: opacity .3s linear, transform 1s cubic-bezier(0.26, 0.67, 0.48, 0.91);
 }
 
 /* chip dropdown/tabs */
