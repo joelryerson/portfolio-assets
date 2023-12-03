@@ -104,20 +104,20 @@
 
 .sub-headline.large {
   font-size: var(--sub-headline-large);
-  line-height: 1.2;
-  font-weight: var(--font-weight-regular);
+  line-height: 1.3;
+  font-weight: var(--font-weight-light);
 }
 
 .sub-headline.medium {
   font-size: var(--sub-headline-medium);
-  line-height: 1.2;
-  font-weight: var(--font-weight-regular);
+  line-height: 1.3;
+  font-weight: var(--font-weight-light);
 }
 
 .sub-headline.small {
   font-size: var(--sub-headline-small);
-  line-height: 1.2;
-  font-weight: var(--font-weight-regular);
+  line-height: 1.3;
+  font-weight: var(--font-weight-light);
 }
 
 .title.large {
