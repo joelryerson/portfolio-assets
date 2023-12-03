@@ -156,28 +156,28 @@
   font-weight: var(--font-weight-regular);
 }
 
-.label-extra-large {
+.label-x-large {
   font-size: var(--label-extra-large);
   line-height: 1.4; 
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semi-bold);
 }
 
 .label.large {
   font-size: var(--label-large);
   line-height: 1.4;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
 }
 
 .label.medium {
   font-size: var(--label-medium);
   line-height: 1.4;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
 }
 
 .label.small {
   font-size: var(--label-small);
   line-height: 1.4;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
 }
 
 .w-tab-link.w--current {
