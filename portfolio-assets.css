@@ -156,7 +156,7 @@
   font-weight: var(--font-weight-regular);
 }
 
-.label-x-large {
+.label.x-large {
   font-size: var(--label-extra-large);
   line-height: 1.4; 
   font-weight: var(--font-weight-semi-bold);
