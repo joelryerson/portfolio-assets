@@ -69,19 +69,19 @@
 .display.large {
   font-size: var(--display-large);
   line-height: 1.1;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semi-bold);
 }
 
 .display.medium {
   font-size: var(--display-medium);
   line-height: 1.1;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semi-bold);
 }
 
 .display.small {
   font-size: var(--display-small);
   line-height: 1.2;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semi-bold);
 }
 
 .headline.large {
