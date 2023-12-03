@@ -6,20 +6,28 @@
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
   --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
 
-  /* Display */
-  --display-xxx-large: clamp(3.5rem, 6vw, 4.25rem); /* Example: 56px to 68px */
-  --display-xx-large: clamp(3rem, 5.5vw, 3.75rem);  /* Example: 48px to 60px */
-  --display-x-large: clamp(2.75rem, 5.25vw, 3.5rem); /* Example: 44px to 56px */
-  --display-large: clamp(2.25rem, 5vw, 3.5625rem); /* 36px to 57px */
-  --display-medium: clamp(1.875rem, 4vw, 2.8125rem); /* 30px to 45px */
-  --display-small: clamp(1.5rem, 3vw, 2.25rem); /* 24px to 36px */
+    /* Display */
+  --display-xxx-large: clamp(4rem, 7vw, 4.75rem); /* Example: 64px to 76px */
+  --display-xx-large: clamp(3.5rem, 6.5vw, 4.25rem); /* Example: 56px to 68px */
+  --display-x-large: clamp(3rem, 6vw, 4rem); /* Example: 48px to 64px */
+  --display-large: clamp(2.5rem, 5.5vw, 3.75rem); /* 40px to 60px */
+  --display-medium: clamp(2rem, 4.5vw, 3rem); /* 32px to 48px */
+  --display-small: clamp(1.75rem, 3.5vw, 2.5rem); /* 28px to 40px */
   
   /* Headline */
-  --headline-large: clamp(1.5rem, 3vw, 2rem); /* 24px to 32px */
-  --headline-medium: clamp(1.375rem, 2.75vw, 1.75rem); /* 22px to 28px */
-  --headline-small: clamp(1.25rem, 2.5vw, 1.5rem); /* 20px to 24px */
+  --headline-large: clamp(1.75rem, 3.5vw, 2.25rem); /* 28px to 36px */
+  --headline-medium: clamp(1.5rem, 3.25vw, 2rem); /* 24px to 32px */
+  --headline-small: clamp(1.375rem, 3vw, 1.75rem); /* 22px to 28px */
+
+
+  /* Sub-Headline */
+  --sub-headline-large: clamp(1.25rem, 2.5vw, 1.75rem); /* Example: 20px to 28px */
+  --sub-headline-medium: clamp(1.125rem, 2.25vw, 1.5rem); /* Example: 18px to 24px */
+  --sub-headline-small: clamp(1rem, 2vw, 1.25rem); /* Example: 16px to 20px */
 
   /* Title */
   --title-large: clamp(0.875rem, 2.2vw, 1.375rem); /* 14px to 22px */
@@ -43,19 +51,19 @@
 .display.xxx-large {
   font-size: var(--display-xxx-large);
   line-height: 1.1;
-  font-weight: var(--font-weight-light); /* Adjust as needed */
+  font-weight: var(--font-weight-bold); /* Adjust as needed */
 }
 
 .display.xx-large {
   font-size: var(--display-xx-large);
   line-height: 1.1;
-  font-weight: var(--font-weight-light); /* Adjust as needed */
+  font-weight: var(--font-weight-bold); /* Adjust as needed */
 }
 
 .display.x-large {
   font-size: var(--display-x-large);
   line-height: 1.1;
-  font-weight: var(--font-weight-light); /* Adjust as needed */
+  font-weight: var(--font-weight-bold); /* Adjust as needed */
 }
 
 .display.large {
@@ -79,36 +87,36 @@
 .headline.large {
   font-size: var(--headline-large);
   line-height: 1.25;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 
 .headline.medium {
   font-size: var(--headline-medium);
   line-height: 1.25;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 
 .headline.small {
   font-size: var(--headline-small);
   line-height: 1.3;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 
-.headline-subtitle.large {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem); /* Example: 20px to 28px */
-  line-height: 1.4;
+.sub-headline.large {
+  font-size: var(--sub-headline-large);
+  line-height: 1.2;
   font-weight: var(--font-weight-regular);
 }
 
-.headline-subtitle.medium {
-  font-size: clamp(1.125rem, 2.25vw, 1.5rem); /* Example: 18px to 24px */
-  line-height: 1.4;
+.sub-headline.medium {
+  font-size: var(--sub-headline-medium);
+  line-height: 1.2;
   font-weight: var(--font-weight-regular);
 }
 
-.headline-subtitle.small {
-  font-size: clamp(1rem, 2vw, 1.25rem); /* Example: 16px to 20px */
-  line-height: 1.4;
+.sub-headline.small {
+  font-size: var(--sub-headline-small);
+  line-height: 1.2;
   font-weight: var(--font-weight-regular);
 }
 
