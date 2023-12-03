@@ -11,7 +11,7 @@
   --font-weight-extra-bold: 800;
 
     /* Display */
-  --display-xxx-large: clamp(3.65rem, 7vw, 4.75rem); /* 64px to 76px */
+  --display-xxx-large: clamp(3.55rem, 7vw, 4.75rem); /* 64px to 76px */
   --display-xx-large: clamp(3.5rem, 6.5vw, 4.25rem); /* 56px to 68px */
   --display-x-large: clamp(3rem, 6vw, 4rem); /* 48px to 64px */
   --display-large: clamp(2.5rem, 5.5vw, 3.75rem); /* 40px to 60px */
