@@ -32,6 +32,7 @@
   --body-small: 0.75rem; /* 12px */
 
   /* Label */
+  --label-extra-large: clamp(1rem, 2.5vw, 1.25rem); /* 16px */
   --label-large-prominent: 0.875rem; /* 14px */
   --label-large: 0.875rem; /* 14px */
   --label-medium-prominent: 0.75rem; /* 12px */
@@ -151,6 +152,12 @@
   font-size: var(--label-large-prominent);
   line-height: 1.4;
   font-weight: var(--font-weight-medium);
+}
+
+.label-extra-large {
+  font-size: var(--label-extra-large);
+  line-height: 1.4; 
+  font-weight: var(--font-weight-regular);
 }
 
 .label.large {
