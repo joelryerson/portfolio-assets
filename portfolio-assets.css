@@ -93,6 +93,24 @@
   font-weight: var(--font-weight-bold);
 }
 
+.headline-subtitle.large {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem); /* Example: 20px to 28px */
+  line-height: 1.4;
+  font-weight: var(--font-weight-regular);
+}
+
+.headline-subtitle.medium {
+  font-size: clamp(1.125rem, 2.25vw, 1.5rem); /* Example: 18px to 24px */
+  line-height: 1.4;
+  font-weight: var(--font-weight-regular);
+}
+
+.headline-subtitle.small {
+  font-size: clamp(1rem, 2vw, 1.25rem); /* Example: 16px to 20px */
+  line-height: 1.4;
+  font-weight: var(--font-weight-regular);
+}
+
 .title.large {
   font-size: var(--title-large);
   line-height: 1.3;
