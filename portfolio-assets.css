@@ -25,7 +25,7 @@
 
 
   /* Sub-Headline */
-  --sub-headline-large: clamp(1.5rem, 2.5vw, 1.75rem); /* 20px to 28px */
+  --sub-headline-large: clamp(1.4rem, 2.5vw, 1.7rem); /* 20px to 28px */
   --sub-headline-medium: clamp(1.125rem, 2.25vw, 1.5rem); /* 18px to 24px */
   --sub-headline-small: clamp(1rem, 2vw, 1.25rem); /* 16px to 20px */
 
