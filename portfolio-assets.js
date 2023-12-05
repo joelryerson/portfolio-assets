@@ -179,7 +179,7 @@ $('[data-click="faq"]').click(function () {
 
 //preloader animation
 
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
     // Detect if the browser is Chrome
     const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 
@@ -216,7 +216,7 @@ window.addEventListener('load', function () {
             loader.style.display = 'none';
         });
     }, 4000); // Adjust this time as needed
-});
+});*/
 
 //---------------------------------------------------------------------------------
 
