@@ -25,7 +25,7 @@
 
 
   /* Sub-Headline */
-  --sub-headline-large: clamp(1.4rem, 2.5vw, 1.7rem); /* 20px to 28px */
+  --sub-headline-large: clamp(1.375rem, 2.5vw, 1.7rem); /* 20px to 28px */
   --sub-headline-medium: clamp(1.2rem, 2.25vw, 1.5rem); /* 18px to 24px */
   --sub-headline-small: clamp(1rem, 2vw, 1.25rem); /* 16px to 20px */
 
@@ -105,7 +105,7 @@
 .sub-headline.large {
   font-size: var(--sub-headline-large);
   line-height: 1.25;
-  font-weight: var(--font-weight-light);
+  font-weight: var(--font-weight-regular);
 }
 
 .sub-headline.medium {
