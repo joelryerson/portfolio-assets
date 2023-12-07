@@ -104,13 +104,13 @@
 
 .sub-headline.large {
   font-size: var(--sub-headline-large);
-  line-height: 1.3;
+  line-height: 1.4;
   font-weight: var(--font-weight-regular);
 }
 
 .sub-headline.medium {
   font-size: var(--sub-headline-medium);
-  line-height: 1.375;
+  line-height: 1.45;
   font-weight: var(--font-weight-regular);
 }
 
