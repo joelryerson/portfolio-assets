@@ -359,7 +359,7 @@ buttons.forEach((button) => {
     // Grab the nested div for this button
     const nestedDiv = button.querySelector('.state-layer.focused-pressed');
 
-    if (nestedDiv) {
+    /*if (nestedDiv) {
         // Set initial opacity and transition
         nestedDiv.style.opacity = '0';
         nestedDiv.style.transition = 'opacity 200ms ease-out';
@@ -378,7 +378,27 @@ buttons.forEach((button) => {
         button.addEventListener('mouseleave', function () {
             nestedDiv.style.opacity = '0';
         });
-    }
+    }*/
+    nestedDivs.forEach(nestedDiv => {
+        // Set initial opacity and transition
+        nestedDiv.style.opacity = '0';
+        nestedDiv.style.transition = 'opacity 200ms ease-out';
+
+        // On mousedown, set opacity to 1
+        button.addEventListener('mousedown', function () {
+            nestedDiv.style.opacity = '1';
+        });
+
+        // On mouseup, revert opacity to 0
+        button.addEventListener('mouseup', function () {
+            nestedDiv.style.opacity = '0';
+        });
+
+        // Also consider the scenario where the user drags the mouse outside the button
+        button.addEventListener('mouseleave', function () {
+            nestedDiv.style.opacity = '0';
+        });
+    });
 });
 
 //---------------------------------------------------------------------------------
