@@ -386,7 +386,7 @@ buttons.forEach((button) => {
 //ripple effect
 
 document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .nav-rail-segment, .navbar-mobile-segment');
+    const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .nav-rail-segment, .nav-rail-segment.w--current, .navbar-mobile-segment, .navbar-mobile-segment.w--current');
 
     buttons.forEach(button => {
         button.addEventListener('mousedown', function (e) {
