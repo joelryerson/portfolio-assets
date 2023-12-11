@@ -357,7 +357,7 @@ const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button
 // Loop through each button
 buttons.forEach((button) => {
     // Grab the nested div for this button
-    const nestedDiv = button.querySelector('.state-layer.focused-pressed');
+    const nestedDivs = button.querySelectorAll('.state-layer.focused-pressed');
 
     /*if (nestedDiv) {
         // Set initial opacity and transition
