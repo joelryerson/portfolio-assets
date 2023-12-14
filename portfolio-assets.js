@@ -385,7 +385,7 @@ buttons.forEach((button) => {
 
 //ripple effect
 
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab');
 
     buttons.forEach(button => {
@@ -419,4 +419,37 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+});*/
+
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab, .nav-rail-segment .nav-segment-icon-container');
+
+    buttons.forEach(button => {
+        button.addEventListener('mousedown', function (e) {
+            const ripple = document.createElement("div");
+            ripple.className = "ripple";
+
+            const existingRipple = button.querySelector('.ripple');
+            const existingColor = window.getComputedStyle(existingRipple).backgroundColor;
+            ripple.style.backgroundColor = existingColor;
+
+            // Adjust here for the ripple position
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const offsetX = e.clientX - rect.left;
+            const offsetY = e.clientY - rect.top;
+
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${offsetX - size / 2}px`;
+            ripple.style.top = `${offsetY - size / 2}px`;
+
+            button.appendChild(ripple);
+            ripple.classList.add('active');
+
+            ripple.addEventListener('animationend', function () {
+                ripple.remove();
+            });
+        });
+    });
 });
+
