@@ -352,7 +352,7 @@ document.querySelectorAll(".close-modal").forEach(function (button) {
 //show focused-pressed state layer on mouse down
 
 // Grab all the buttons
-const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .nav-rail-segment, .navbar-mobile-segment, .fab, .nav-segment-icon-container');
+const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab, .nav-segment-icon-container');
 
 // Loop through each button
 buttons.forEach((button) => {
@@ -406,7 +406,7 @@ buttons.forEach((button) => {
 //ripple effect
 
 document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .nav-rail-segment, .nav-rail-segment.w--current, .navbar-mobile-segment, .fab, .nav-segment-icon-container');
+    const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab, .nav-segment-icon-container');
 
     buttons.forEach(button => {
         button.addEventListener('mousedown', function (e) {
