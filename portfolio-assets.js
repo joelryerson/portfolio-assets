@@ -422,19 +422,22 @@ buttons.forEach((button) => {
 });*/
 
 document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab, .nav-rail-segment .nav-segment-icon-container');
+    const elements = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab, .nav-rail-segment');
 
-    buttons.forEach(button => {
-        button.addEventListener('mousedown', function (e) {
+    elements.forEach(element => {
+        element.addEventListener('mousedown', function (e) {
+            // Find the .nav-segment-icon-container within the clicked element
+            const iconContainer = element.querySelector('.nav-segment-icon-container');
+            if (!iconContainer) return; // If there's no icon container, do nothing
+
             const ripple = document.createElement("div");
             ripple.className = "ripple";
 
-            const existingRipple = button.querySelector('.ripple');
-            const existingColor = window.getComputedStyle(existingRipple).backgroundColor;
+            // Apply color and sizing
+            const existingColor = window.getComputedStyle(iconContainer, null).backgroundColor;
             ripple.style.backgroundColor = existingColor;
 
-            // Adjust here for the ripple position
-            const rect = button.getBoundingClientRect();
+            const rect = iconContainer.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
             const offsetX = e.clientX - rect.left;
             const offsetY = e.clientY - rect.top;
@@ -443,7 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ripple.style.left = `${offsetX - size / 2}px`;
             ripple.style.top = `${offsetY - size / 2}px`;
 
-            button.appendChild(ripple);
+            iconContainer.appendChild(ripple);
             ripple.classList.add('active');
 
             ripple.addEventListener('animationend', function () {
@@ -452,4 +455,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
 
