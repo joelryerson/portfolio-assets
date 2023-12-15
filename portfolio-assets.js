@@ -385,6 +385,50 @@ buttons.forEach((button) => {
 
 //ripple effect
 
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab, .nav-rail-segment');
+
+    buttons.forEach(button => {
+        button.addEventListener('mousedown', function (e) {
+            let rippleContainer = button.querySelector('.ripple-container');
+            let existingRipple = button.querySelector('.ripple');
+            let createRippleInsideContainer = false;
+            
+            if (rippleContainer) {
+                createRippleInsideContainer = true;
+            }
+
+            // Create a new ripple element for this click
+            const newRipple = document.createElement("div");
+            newRipple.className = "ripple";
+
+            // Get the color for the new ripple
+            const existingColor = window.getComputedStyle(existingRipple).backgroundColor;
+            newRipple.style.backgroundColor = existingColor;
+
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+
+            newRipple.style.width = newRipple.style.height = `${size}px`;
+            newRipple.style.left = `${e.clientX - rect.left - size / 2}px`;
+            newRipple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+            if (createRippleInsideContainer) {
+                rippleContainer.appendChild(newRipple);
+            } else {
+                button.appendChild(newRipple);
+            }
+
+            newRipple.classList.add('active');
+
+            // Remove the ripple element when its animation is done
+            newRipple.addEventListener('animationend', function () {
+                newRipple.remove();
+            });
+        });
+    });
+});
+
 /*document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab');
 
