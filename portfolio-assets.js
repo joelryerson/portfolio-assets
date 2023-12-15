@@ -421,39 +421,3 @@ buttons.forEach((button) => {
     });
 });*/
 
-document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab, .nav-rail-segment');
-
-    elements.forEach(element => {
-        element.addEventListener('mousedown', function (e) {
-            // Find the .nav-segment-icon-container within the clicked element
-            const iconContainer = element.querySelector('.nav-segment-icon-container');
-            if (!iconContainer) return; // If there's no icon container, do nothing
-
-            const ripple = document.createElement("div");
-            ripple.className = "ripple";
-
-            // Apply color and sizing
-            const existingColor = window.getComputedStyle(iconContainer, null).backgroundColor;
-            ripple.style.backgroundColor = existingColor;
-
-            const rect = iconContainer.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const offsetX = e.clientX - rect.left;
-            const offsetY = e.clientY - rect.top;
-
-            ripple.style.width = ripple.style.height = `${size}px`;
-            ripple.style.left = `${offsetX - size / 2}px`;
-            ripple.style.top = `${offsetY - size / 2}px`;
-
-            iconContainer.appendChild(ripple);
-            ripple.classList.add('active');
-
-            ripple.addEventListener('animationend', function () {
-                ripple.remove();
-            });
-        });
-    });
-});
-
-
