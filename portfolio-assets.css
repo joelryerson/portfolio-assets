@@ -847,7 +847,7 @@ img.loaded {
 /* selected switch */
 
 .switch.selected .handle-container {
-    transform: translateX(22px);
+    transform: translateX(23px);
 }
 
 .switch.selected .handle.enabled.selected,
