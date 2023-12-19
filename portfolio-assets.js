@@ -305,7 +305,7 @@ function initialCheck(element) {
 }
 
 window.addEventListener('load', () => {
-    const elements = document.querySelectorAll('.fade-effect, .timeline-scale-effect');
+    const elements = document.querySelectorAll('.fade-effect');
 
     // Function to update visibility
     const updateVisibility = (element) => {
