@@ -785,6 +785,7 @@ img.loaded {
 
 .static-before-after.visible {
     display: flex !important;
+    align-items: stretch;
 }
 
 /* unselected switch */
