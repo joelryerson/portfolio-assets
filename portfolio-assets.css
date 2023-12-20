@@ -708,8 +708,7 @@ img.loaded {
     position: fixed;
     top: 0;
     left: 0;
-    background: url('https://uploads-ssl.webflow.com/64ed0eda554985509ce79cce/655c39f1d1f5d14e8fae8258_hero%20blur.webp') no-repeat center center;
-    background-size: cover; /* Ensures that the background covers the entire area */
+    background-color: var(--surface-dim);
     z-index: 99999; /* Make sure this is above everything else */
 }
 
