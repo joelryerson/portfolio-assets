@@ -710,7 +710,7 @@ img.loaded {
     left: 0;
     background: url('https://uploads-ssl.webflow.com/64ed0eda554985509ce79cce/655c39f1d1f5d14e8fae8258_hero%20blur.webp') no-repeat center center;
     background-size: cover; /* Ensures that the background covers the entire area */
-    z-index: 1000; /* Make sure this is above everything else */
+    z-index: 99999; /* Make sure this is above everything else */
 }
 
 /* fade-out effect on loader*/
