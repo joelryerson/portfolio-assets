@@ -1,3 +1,51 @@
+// Function to apply styles to the '.timeline-scale-effect' elements
+
+function applyTimelineScaleEffect(element) {
+    const rect = element.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    if (rect.top <= viewportHeight * 0.95) {
+        element.style.opacity = '1';
+        element.style.transform = 'scale3d(1, 1, 1)';
+        element.style.transition = 'opacity .3s cubic-bezier(.77, 0, .175, 1), transform .3s cubic-bezier(.785, .135, .15, .86)';
+    } else {
+        element.style.opacity = '0';
+        element.style.transform = 'scale3d(0, 1, 1)';
+        element.style.transition = 'opacity .2s cubic-bezier(.77, 0, .175, 1), transform .1s linear';
+    }
+
+    // Apply effects to direct children with a timeout
+    const children = element.children;
+    Array.from(children).forEach((child) => {
+        if (rect.top <= viewportHeight * 0.95) {
+            setTimeout(() => {
+                child.style.opacity = '1';
+                child.style.transform = 'translate3d(0px, 0px, 0px)';
+                child.style.transition = 'opacity .5s cubic-bezier(.77, 0, .175, 1), transform .5s cubic-bezier(.25, .46, .45, .94)';
+            }, 400 ); // Delay applies only when in viewport
+
+        } else {
+            child.style.opacity = '0';
+            child.style.transform = 'translate3d(0px, 12px, 0px)';
+            child.style.transition = 'opacity .2s cubic-bezier(.77, 0, .175, 1), transform .1s linear';
+
+        }
+    });
+
+}
+
+window.addEventListener('load', () => {
+    const elements = document.querySelectorAll('.timeline-scale-effect');
+
+    elements.forEach(applyTimelineScaleEffect);
+
+    // Update on scroll
+    window.addEventListener('scroll', () => {
+        elements.forEach(applyTimelineScaleEffect);
+
+    });
+});
+
 // nav drawer slide in and out
 
 const navDrawer = document.querySelector('.nav-drawer');
@@ -748,49 +796,6 @@ $('[data-click="faq"]').click(function () {
 
 //---------------------------------------------------------------------------------
 
-//preloader animation
-
-/*document.addEventListener('DOMContentLoaded', function () {
-    // Detect if the browser is Chrome
-    const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-
-    if (!isChrome) {
-        // Only run the animation if it's not Chrome
-        const bars = document.querySelectorAll('.rainbow-wave-loader div');
-        let currentIndex = 0;
-        const highlightBar = () => {
-            bars.forEach((bar, index) => {
-                bar.classList.remove('highlight');
-                if (index === currentIndex) {
-                    bar.classList.add('highlight');
-                }
-            });
-            currentIndex = (currentIndex + 1) % bars.length;
-        };
-        highlightBar();
-        setInterval(highlightBar, 2200 / bars.length); // Sync with CSS animation duration
-    }
-});
-
-//preloader fade out and display to none
-
-window.addEventListener('load', function () {
-    setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if (loader) {
-            loader.classList.add('fade-out');
-        } else {
-            console.error("Loader element not found.");
-        }
-
-        loader.addEventListener('animationend', () => {
-            loader.style.display = 'none';
-        });
-    }, 4000); // Adjust this time as needed
-});*/
-
-//---------------------------------------------------------------------------------
-
 //show/hide static images for before/after
 
 //add .selected class to .switch on 1st and remove on 2nd click, remove .unselected class to .switch on 1st and add on 2nd click
@@ -999,40 +1004,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
-/*document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll('.button, .icon-button, .chip, .button-segment, .accordion-header, .menu-item, .navbar-mobile-segment, .fab');
-
-    buttons.forEach(button => {
-        button.addEventListener('mousedown', function (e) {
-            // Create a new ripple element for this click
-            const ripple = document.createElement("div");
-            ripple.className = "ripple";
-
-            // Get the existing color (assuming an existing ripple element)
-            const existingRipple = button.querySelector('.ripple');
-            const existingColor = window.getComputedStyle(existingRipple).backgroundColor;
-
-            // Set the color for the new ripple
-            ripple.style.backgroundColor = existingColor;
-
-
-            const rect = button.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-
-            ripple.style.width = ripple.style.height = `${size}px`;
-            ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-            ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
-
-            button.appendChild(ripple);
-
-            ripple.classList.add('active');
-
-            // Remove the ripple element when its animation is done
-            ripple.addEventListener('animationend', function () {
-                ripple.remove();
-            });
-        });
-    });
-});*/
 
