@@ -585,25 +585,25 @@
 .label.x-large {
   font-size: var(--label-extra-large);
   line-height: 1.4; 
-  font-weight: var(--font-weight-semi-bold);
+  font-weight: var(--font-weight-medium);
 }
 
 .label.large {
   font-size: var(--label-large);
   line-height: 1.4;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 
 .label.medium {
   font-size: var(--label-medium);
   line-height: 1.4;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 
 .label.small {
   font-size: var(--label-small);
   line-height: 1.4;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
 }
 
 .w-tab-link.w--current {
