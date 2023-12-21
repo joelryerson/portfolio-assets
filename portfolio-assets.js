@@ -1,3 +1,97 @@
+// nav drawer slide in and out
+
+const navDrawer = document.querySelector('.nav-drawer');
+const navDrawerSegments = document.querySelector('.nav-drawer-segments');
+const navRailSegment = document.querySelector('.nav-rail-segment._w-nav-drawer');
+const navRail = document.querySelector('.nav-rail');
+const closeTriggers = document.querySelectorAll('.trigger-nav-drawer-close');
+
+let openTimeout;
+
+// Function to open the drawer with a delay
+function openDrawerWithDelay() {
+  clearTimeout(openTimeout); // Clear any existing timeout
+  openTimeout = setTimeout(() => {
+    navDrawer.classList.add('open');
+    // Add shadow with delay
+    /*setTimeout(() => {
+      navDrawerSegments.classList.add('shadow-delayed');
+    }, 400); // Adjust this delay for the shadow*/
+  }, 300); // Delay for opening the drawer
+}
+
+// Function to close the drawer immediately
+function closeDrawer() {
+  clearTimeout(openTimeout);
+  navDrawer.classList.remove('open');
+  navDrawerSegments.classList.remove('shadow-delayed'); // Remove shadow immediately
+}
+
+// Open drawer when hovering over navRailSegment
+navRailSegment.addEventListener('mouseenter', openDrawerWithDelay);
+
+// Close drawer when mouse leaves navRailSegment, unless hovering over navDrawer or navRail
+navRailSegment.addEventListener('mouseleave', () => {
+  if (!navDrawer.matches(':hover') && !navRail.matches(':hover')) {
+    closeDrawer();
+  }
+});
+
+// Keep drawer open when hovering over navDrawer or navRail
+navDrawer.addEventListener('mouseenter', () => clearTimeout(openTimeout));
+navDrawer.addEventListener('mouseleave', () => {
+  if (!navRailSegment.matches(':hover') && !navRail.matches(':hover')) {
+    closeDrawer();
+  }
+});
+
+navRail.addEventListener('mouseenter', () => {
+  if (navDrawer.classList.contains('open')) {
+    clearTimeout(openTimeout);
+  }
+});
+navRail.addEventListener('mouseleave', () => {
+  if (!navDrawer.matches(':hover') && !navRailSegment.matches(':hover')) {
+    closeDrawer();
+  }
+});
+
+// Close drawer when hovering over elements with .trigger-nav-drawer-close class
+closeTriggers.forEach(trigger => {
+  trigger.addEventListener('mouseenter', closeDrawer);
+});
+
+
+
+//mobile nav and mobile fab sliding in and out on scroll
+
+let lastScrollY = window.scrollY;
+let navbar = document.querySelector('.navbar-mobile');
+let fab = document.querySelector('.fab.fixed');
+
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+  const maxScrollY = document.body.scrollHeight - window.innerHeight;
+  const isScrollingDown = currentScrollY > lastScrollY;
+
+  // Prevent animation at the top and bottom bounce
+  if (currentScrollY <= 0 || currentScrollY >= maxScrollY) {
+    return;
+  }
+
+  // Navbar logic
+  navbar.style.transform = isScrollingDown ? 'translateY(-150%)' : 'translateY(0)';
+
+  // FAB logic
+  fab.style.transform = isScrollingDown ? 'translateY(150%)' : 'translateY(0)';
+
+  lastScrollY = currentScrollY;
+});
+
+// Smooth transitions
+navbar.style.transition = 'transform 0.3s ease-out';
+fab.style.transition = 'transform 0.3s ease-out';
+
 //preloader animation
 
 document.addEventListener('DOMContentLoaded', function () {
