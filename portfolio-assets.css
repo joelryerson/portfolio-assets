@@ -604,6 +604,7 @@
   font-weight: var(--font-weight-medium);
 }
 
+/* tab link for modals */
 .w-tab-link.w--current {
     background-color: transparent !important;
 }
@@ -616,11 +617,6 @@
         'wght'300,
         'GRAD'0,
         'opsz'20
-}
-
-/* Initially hide main content */
-#main-content {
-    visibility: hidden;
 }
 
 /* Initial styles for .timeline-scale-effect elements */
@@ -641,6 +637,8 @@
     transform-style: preserve-3d;
 }
 
+/* Nav Drawer Styles */
+
 .nav-drawer.open {
   left: 88px;
 }
@@ -648,6 +646,8 @@
 .nav-drawer-segments.shadow-delayed {
   box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
 }
+
+/* fade-effects */
 
 .opacity-fade-effect {
   transition: opacity 0.9s cubic-bezier(0.26, 0.67, 0.48, 0.91);
@@ -667,64 +667,13 @@
   }
 }
 
+/* outside frame */
+
 .outside-frame {
   pointer-events: none;
 }
 
-
-/* FullPage.js Navigation Dots - Initially Positioned Off-Screen */
-#fp-nav.fp-left {
-    visibility: hidden;
-    left: -50px; /* Start off-screen */
-    margin-top: -20px;
-    transform: translateX(-120%) translateY(-50%);
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out, left 0.4s ease-out; /* Include transition for 'left' */
-    opacity: 0;
-    pointer-events: none; /* Prevent interaction while hidden */
-}
-
-@media (min-width: 992px) {
-
-    /* Adjust for visibility and position from the second section onwards */
-    #fp-nav.fp-left.show-nav {
-        display: block; /* Ensure it's displayed */
-        visibility: visible;
-        opacity: 1;
-        left: 112px !important; /* Slide to the final position */
-        transform: translateX(0) translateY(-50%);
-        pointer-events: auto; /* Enable interaction */
-    }
-
-    /* Style for the navigation dots */
-    #fp-nav ul li, .fp-slidesNav ul li {
-        width: 32px;
-        height: 24px;
-        margin: 0;
-    }
-
-    #fp-nav ul li a span,
-    .fp-slidesNav ul li a span {
-        background: var(--secondary-fixed-dim);
-        transition: all 0.2s ease-out;
-    }
-
-    #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
-        background: var(--secondary);
-        transition: all 0.2s ease-out;
-    }
-
-    #fp-nav ul li:first-child {
-        display: none;
-    }
-
-}
-
-
-@media (max-width: 767px) {
-  .fullpage-section {
-    height: calc(100vh - 16px);
-  }
-}
+/* mobile navbar */
 
 .navbar-mobile {
   transform: translateY(0); /* Initially, the navbar is in view */
@@ -736,9 +685,7 @@
   opacity: 0; /* Fully transparent when hidden */
 }
 
-.flex-container.hero {
-	pointer-events: none;
-}
+/* nav rail and nav drawer styles */
 
 .nav-rail-segment .state-layer.default, .nav-rail-segment .label.small.for-nav.default, .nav-rail-segment .nav-rail-segment-icon.default, .nav-drawer-segment .state-layer.default, .nav-drawer-segment .label.large.for-nav.default {
     visibility: visible;
@@ -756,25 +703,11 @@
     visibility: visible;
 }
 
-/* Hide the Lottie animation by default */
-.lottie-hero.dark {
-  display: none;
+.nav-rail-segment-icon svg {
+	transition: color .2s ease-out;
 }
 
-/* When dark mode is active, show the Lottie animation */
-:root.dark .lottie-hero.dark {
-  display: block;
-}
-
-/* Hide the Lottie animation by default */
-.lottie-hero.light {
-  display: block;
-}
-
-/* When dark mode is active, show the Lottie animation */
-:root.dark .lottie-hero.light {
-  display: none;
-}
+/* dark theme toggle button */
 
 .icon-button.theme-toggle:hover .icon-for-icon-button.theme-toggle .material-symbols-rounded {
     font-variation-settings: 'FILL'1, 'wght'300, 'GRAD'0, 'opsz'20;
@@ -804,10 +737,6 @@
 :root.dark .project-preview-image, :root.dark .lazy {
 	filter: brightness(90%);
   	transition: filter .2s ease-out, border-color .2s ease-out, background-color .2s ease-out;
-}
-
-.nav-rail-segment-icon svg {
-	transition: color .2s ease-out;
 }
 
 /* When dark mode is active, show dark image */
@@ -850,15 +779,11 @@
 
 /* Applying variables to the respective classes */
 .pre-loader.main { background-color: var(--pre-loader-main, #121316); }
-.pre-loader.sos { background-color: var(--pre-loader-sos); }
-.pre-loader.t121 { background-color: var(--pre-loader-t121); }
-.pre-loader.rhds { background-color: var(--pre-loader-rhds); }
-.pre-loader.rhjo { background-color: var(--pre-loader-rhjo); }
+.pre-loader.sos { background-color: var(--pre-loader-sos, #141316); }
+.pre-loader.t121 { background-color: var(--pre-loader-t121, #111412); }
+.pre-loader.rhds { background-color: var(--pre-loader-rhds, #111416); }
+.pre-loader.rhjo { background-color: var(--pre-loader-rhjo, #181212); }
 
-
-.hero-header {
-    pointer-events: none; 
-}
 
 /*blurHash fade in*/
 
@@ -908,16 +833,6 @@ img.loaded {
 .rainbow-wave-loader div:nth-child(9) { animation-delay: -0.4s; }
 .rainbow-wave-loader div:nth-child(10) { animation-delay: -0.2s; }
 
-/*@keyframes wave {
-    0%, 100% {
-        transform: scaleY(0.5);
-        opacity: 0.4;
-    }
-    50% {
-        transform: scaleY(1.2);
-        opacity: 1;
-    }
-}*/
 
 @keyframes wave {
     0%, 100% {
@@ -977,7 +892,7 @@ img.loaded {
 }
 
 .ripple.active {
-    animation: ripple-fade-away 0.6s ease-out;
+    animation: ripple-fade-away 0.4s ease-out;
     opacity: 1;
 }
 
@@ -985,7 +900,7 @@ img.loaded {
 
 
 .changing-radius {
-    transition: border-radius 0.6s ease-out;
+    transition: border-radius 0.3s ease-out;
 }
 
 /* element fade-in effect on scroll */
