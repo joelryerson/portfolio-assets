@@ -1,4 +1,5 @@
-// Function to apply styles to the '.timeline-scale-effect' elements
+// Function to apply styles to the '.timeline-scale-effect' elements /////////////////////////////////////////////////
+
 
 function applyTimelineScaleEffect(element) {
     const rect = element.getBoundingClientRect();
@@ -46,7 +47,7 @@ window.addEventListener('load', () => {
     });
 });
 
-// nav drawer slide in and out
+// nav drawer slide in and out /////////////////////////////////////////////////
 
 const navDrawer = document.querySelector('.nav-drawer');
 const navDrawerSegments = document.querySelector('.nav-drawer-segments');
@@ -111,7 +112,7 @@ closeTriggers.forEach(trigger => {
 
 
 
-//mobile nav and mobile fab sliding in and out on scroll
+//mobile nav and mobile fab sliding in and out on scroll /////////////////////////////////////////////////
 
 let lastScrollY = window.scrollY;
 let navbar = document.querySelector('.navbar-mobile');
@@ -164,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-//preloader fade out and display to none
+//preloader fade out and display to none /////////////////////////////////////////////////
 
 window.addEventListener('load', function () {
     const loader = document.getElementById('loader');
@@ -194,7 +195,8 @@ document.querySelectorAll('.delayed-link').forEach(function (link) {
 
 
 
-// Mapping of slugs to section classes
+// Mapping of slugs to section classes /////////////////////////////////////////////////
+
 var slugToTagMapping = {
     'startup-platform': 'sos',
     'athletic-training-app': 't121',
@@ -203,7 +205,8 @@ var slugToTagMapping = {
     'about': 'main'
 };
 
-// defining color values for the color variables
+// defining color values for the color variables /////////////////////////////////////////////////
+
 var variableColorValues = ['primary', 'on-primary', 'primary-container', 'on-primary-container', 'primary-fixed', 'on-primary-fixed', 'primary-fixed-dim', 'on-primary-fixed-variant', 'secondary', 'on-secondary', 'on-secondary-hover', 'on-secondary-focused-pressed', 'on-secondary-drag', 'secondary-container', 'on-secondary-container', 'secondary-fixed', 'on-secondary-fixed', 'secondary-fixed-dim', 'on-secondary-fixed-variant', 'tertiary', 'on-tertiary', 'tertiary-container', 'on-tertiary-container', 'tertiary-fixed', 'on-tertiary-fixed', 'tertiary-fixed-dim', 'on-tertiary-fixed-variant', 'error', 'on-error', 'error-container', 'on-error-container', 'outline', 'background', 'on-background', 'surface', 'on-surface', 'surface-variant', 'on-surface-variant', 'inverse-surface', 'inverse-on-surface', 'inverse-primary', 'shadow', 'surface-tint', 'outline-variant', 'scrim', 'surface-container-highest', 'surface-container-high', 'surface-container', 'surface-container-low', 'surface-container-lowest', 'surface-bright', 'surface-dim', 'primary-hover', 'primary-focused-pressed', 'primary-drag', 'on-primary-hover', 'on-primary-focused-pressed', 'on-primary-drag', 'on-secondary-container-hover', 'on-secondary-container-focused-pressed', 'on-secondary-container-drag', 'on-secondary-fixed-variant-hover', 'on-secondary-fixed-variant-focused-pressed', 'on-secondary-fixed-variant-drag', 'on-tertiary-container-hover', 'on-tertiary-container-focused-pressed', 'on-tertiary-container-drag', 'on-surface-hover', 'on-surface-focused-pressed', 'on-surface-drag', 'on-surface-variant-hover', 'on-surface-variant-focused-pressed', 'on-surface-variant-drag', 'inverse-on-surface-hover', 'inverse-on-surface-focused-pressed', 'inverse-on-surface-drag'];
 
 // helper functions ////////////////////////////////////////////////////////////////////////////////////
@@ -297,7 +300,7 @@ function toggleTheme() {
 
 
 // initial mobile navbar styles on load at top /////////////////////////////////////////////////////////
-
+/*
 // Define initial styles for .navbar-mobile
 const initialNavbarMobileStyles = {
     backgroundColor: 'transparent',
@@ -317,95 +320,7 @@ function applyInitialNavbarMobileStyles() {
 
 // stored styles for mobile navbar opening and closing effects /////////////////////////////////////////
 
-let storedStyles = {};
-
-
-// home fade effects ///////////////////////////////////////////////////////////////////////////////////
-
-// fade effect for home contents based on scroll
-function updateFadeEffect() {
-    const projectClasses = ['sos', 't121', 'rhds', 'rhjo'];
-
-    projectClasses.forEach(projectClass => {
-        const projectContent = document.querySelector(`.${projectClass} .flex-column-content.fade-effect-x`);
-
-        if (projectContent) {
-            const rect = projectContent.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            // Check if the top of the content is at the bottom of the viewport
-            const isProjectContentAtViewportBottom = rect.top >= viewportHeight;
-
-            projectContent.style.opacity = isProjectContentAtViewportBottom ? '0' : '1';
-            projectContent.style.transform = isProjectContentAtViewportBottom ? 'translateY(40px)' : 'translateY(0)';
-        }
-    });
-}
-
-// fade effects for fullPage
-function fullPageFadeEffect(sectionIndex, isLeaving) {
-    const projectClasses = ['sos', 't121', 'rhds', 'rhjo'];
-
-    projectClasses.forEach((projectClass, index) => {
-        const projectContent = document.querySelector(`.${projectClass} .flex-column-content.fade-effect-x`);
-        if (projectContent) {
-            // Fade in the content if we're leaving the section, otherwise make sure it's fully visible
-            if (index === sectionIndex) {
-                projectContent.style.opacity = isLeaving ? '1' : '0';
-                projectContent.style.transform = isLeaving ? 'translateY(0)' : 'translateY(40px)';
-            }
-        }
-    });
-}
-
-function triggerFadeEffectForSectionAndBefore(sectionIndex) {
-    const projectClasses = ['header', 'sos', 't121', 'rhds', 'rhjo']; // Include 'header'
-
-    projectClasses.forEach((projectClass, index) => {
-        const projectContent = document.querySelector(`.${projectClass} .flex-column-content.fade-effect-x`);
-        if (projectContent) {
-            if (index <= sectionIndex) {
-                // Apply fade effect to this section and all preceding sections
-                projectContent.style.opacity = '1';
-                projectContent.style.transform = 'translateY(0)';
-            } else {
-                // Reset for sections after the active one
-                projectContent.style.opacity = '0';
-                projectContent.style.transform = 'translateY(40px)';
-            }
-        }
-    });
-}
-
-
-// Intersection Observer to update colors on scroll ////////////////////////////////////////////////////
-
-// Function to handle intersection changes
-let currentIntersectingSection = null;
-
-function handleIntersection(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            currentIntersectingSection = entry.target;
-            // Update colors for the intersecting section
-            updateDynamicVariables(entry.target);
-        }
-    });
-}
-
-// Set up the Intersection Observer
-function setupIntersectionObserver() {
-    let observerOptions = {
-        root: null, // observing intersections relative to the viewport
-        threshold: 0.5 // Adjust the threshold as needed
-    };
-
-    let observer = new IntersectionObserver(handleIntersection, observerOptions);
-
-    // Observe each section
-    document.querySelectorAll('.fullpage-section').forEach(section => {
-        observer.observe(section);
-    });
-}
+let storedStyles = {}; */
 
 // updating variables based on section /////////////////////////////////////////////////////////////////
 
@@ -422,15 +337,6 @@ function updateDynamicVariables(targetSection) {
         var newVariableRef = `var(--${sectionOrSlugClass}--${currentTheme}--${variable})`;
         document.documentElement.style.setProperty(`--${variable}`, newVariableRef);
     });
-}
-
-// function to destroy fullPage ////////////////////////////////////////////////////////////////////////
-
-function destroyFullPage() {
-    if (isFullPageInitialized && typeof fullpage_api !== 'undefined') {
-        fullpage_api.destroy('all');
-        isFullPageInitialized = false;
-    }
 }
 
 // debounce functions //////////////////////////////////////////////////////////////////////////////////
@@ -454,61 +360,6 @@ function debounce(func, wait, immediate) {
 var debouncedHandleResize = debounce(function () {
     handleResize();
 }, 100); // 100ms delay
-
-// full page initialization ////////////////////////////////////////////////////////////////////////////
-
-var isFullPageInitialized = false;
-
-var isReinitializingFullPage = false; // Flag to prevent multiple initializations
-
-function initializeFullPage() {
-    if (!isFullPageInitialized && !isReinitializingFullPage) {
-        isReinitializingFullPage = true; // Set the flag to indicate initialization started
-
-        new fullpage('#fullpage', {
-            licenseKey: '69F5C334-E1274A87-8768FD9A-FF579048',
-            navigation: true,
-            navigationPosition: 'left',
-            showActiveTooltip: false,
-            lockAnchors: true,
-            anchors: ['header', 'project-1', 'project-2', 'project-3', 'project-4'],
-            sectionSelector: '.fullpage-section',
-            scrollingSpeed: 600,
-            css3: true,
-            easingcss3: 'cubic-bezier(0.65, 0.05, 0.36, 1)',
-            onLeave: function (origin, destination, direction) {
-                setTimeout(function () {
-                    fullPageFadeEffect(origin.index, true); // Trigger fade effect on leaving section
-                }, 350); // Keep this if fade effect is required
-                updateDynamicVariables(destination.item); // Update color variables for the destination section
-                var navDots = document.getElementById('fp-nav');
-                if (destination.index >= 1) {
-                    navDots.classList.add('show-nav');
-                } else {
-                    navDots.classList.remove('show-nav');
-                }
-
-            },
-            afterLoad: function (origin, destination, direction) {
-                fullPageFadeEffect(destination.index, false); // Trigger fade effect after loading section
-
-                updateDynamicVariables(destination.item); // Update color variables for the current section
-
-                var navDots = document.getElementById('fp-nav');
-                if (destination.index >= 1) {
-                    navDots.classList.add('show-nav');
-                } else {
-                    navDots.classList.remove('show-nav');
-                }
-                triggerFadeEffectForSectionAndBefore(destination.index);
-            }
-        });
-
-        isFullPageInitialized = true;
-        isReinitializingFullPage = false; // Reset the flag after initialization
-    }
-}
-
 
 // resize handler //////////////////////////////////////////////////////////////////////////////////////
 
@@ -571,10 +422,6 @@ window.addEventListener('storage', function (event) {
 // Attach the debounced resize event listener
 window.addEventListener('resize', debouncedHandleResize);
 
-// Attach listeners for updating fade effect on load and scroll
-window.addEventListener('load', updateFadeEffect);
-window.addEventListener('scroll', updateFadeEffect);
-
 // When the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -582,35 +429,10 @@ document.addEventListener('DOMContentLoaded', function () {
     //initializeTheme();
     //initializeAndApplyTheme(); // Initialize and apply theme
 
-    // Set up the Intersection Observer
-    setupIntersectionObserver();
-
     // Attach event listeners to navbar mobile segments for menu interaction
-    document.querySelectorAll('.navbar-mobile-segment.menu').forEach(trigger => {
+    /*document.querySelectorAll('.navbar-mobile-segment.menu').forEach(trigger => {
         // Your existing logic for navbar mobile segments...
-    });
-
-    // Attach event listener to 'view-projects' button for desktop
-    document.getElementById('view-projects').addEventListener('click', function () {
-        if (window.innerWidth > 767 && typeof fullpage_api !== 'undefined') {
-            fullpage_api.moveSectionDown();
-        }
-    });
-
-    // Initialize FullPage.js or other scripts for larger screens
-    if (window.innerWidth > 767) {
-        initializeFullPage();
-    } else {
-        // Any other initialization for smaller screens
-    }
-
-    // Determine the current section and update variables
-    var initialSection = document.querySelector('.fullpage-section.active') || document.querySelector('.fullpage-section');
-    if (initialSection) {
-        updateDynamicVariables(initialSection);
-        console.log('Dynamic variables updated for initial section.');
-    }
-
+    });*/
 
 });
 
@@ -676,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //---------------------------------------------------------------------------------
 
-// Function to handle dropdown logic
+// Function to handle dropdown logic in case studies
 
 function handleDropdownClick(event) {
     var isClickInsideMenuDropdown = event.target.closest('.tab-menu-dropdown') !== null;
@@ -730,7 +552,7 @@ window.addEventListener('resize', function () {
 
 //---------------------------------------------------------------------------------
 
-//reset tab scroll position to top when switching
+//reset tab scroll position to top when switching for case study modals
 
 $(document).ready(function () {
     $('.scroll-to-top').on('click', function () {
