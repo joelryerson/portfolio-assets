@@ -1,6 +1,4 @@
 
-
-
 :root.dark {
 
     /* main dark */
@@ -624,6 +622,221 @@
 #main-content {
     visibility: hidden;
 }
+
+.nav-drawer.open {
+  left: 88px;
+}
+
+.nav-drawer-segments.shadow-delayed {
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
+}
+
+.opacity-fade-effect {
+  transition: opacity 0.9s cubic-bezier(0.26, 0.67, 0.48, 0.91);
+}
+
+.fade-effect-x {
+  opacity: 0;
+  transition: opacity 0.3s linear, transform 0.6s cubic-bezier(0.26, 0.67, 0.48, 0.91);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.outside-frame {
+  pointer-events: none;
+}
+
+
+/* FullPage.js Navigation Dots - Initially Positioned Off-Screen */
+#fp-nav.fp-left {
+    visibility: hidden;
+    left: -50px; /* Start off-screen */
+    margin-top: -20px;
+    transform: translateX(-120%) translateY(-50%);
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out, left 0.4s ease-out; /* Include transition for 'left' */
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction while hidden */
+}
+
+@media (min-width: 992px) {
+
+    /* Adjust for visibility and position from the second section onwards */
+    #fp-nav.fp-left.show-nav {
+        display: block; /* Ensure it's displayed */
+        visibility: visible;
+        opacity: 1;
+        left: 112px !important; /* Slide to the final position */
+        transform: translateX(0) translateY(-50%);
+        pointer-events: auto; /* Enable interaction */
+    }
+
+    /* Style for the navigation dots */
+    #fp-nav ul li, .fp-slidesNav ul li {
+        width: 32px;
+        height: 24px;
+        margin: 0;
+    }
+
+    #fp-nav ul li a span,
+    .fp-slidesNav ul li a span {
+        background: var(--secondary-fixed-dim);
+        transition: all 0.2s ease-out;
+    }
+
+    #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
+        background: var(--secondary);
+        transition: all 0.2s ease-out;
+    }
+
+    #fp-nav ul li:first-child {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+  .fullpage-section {
+    height: calc(100vh - 16px);
+  }
+}
+
+.navbar-mobile {
+  transform: translateY(0); /* Initially, the navbar is in view */
+  opacity: 1; /* Fully visible initially */
+}
+
+.navbar-mobile.hidden {
+  transform: translateY(-100px); /* Slide out of view */
+  opacity: 0; /* Fully transparent when hidden */
+}
+
+.flex-container.hero {
+	pointer-events: none;
+}
+
+.nav-rail-segment .state-layer.default, .nav-rail-segment .label.small.for-nav.default, .nav-rail-segment .nav-rail-segment-icon.default, .nav-drawer-segment .state-layer.default, .nav-drawer-segment .label.large.for-nav.default {
+    visibility: visible;
+}
+
+.nav-rail-segment .state-layer.current, .nav-rail-segment .label.small.for-nav.current, .nav-rail-segment .nav-rail-segment-icon.current, .nav-rail-segment .bg-current-nav-segment, .nav-drawer-segment .state-layer.current, .nav-drawer-segment .label.large.for-nav.current, .nav-drawer-segment .bg-current-nav-segment   {
+    visibility: hidden;
+}
+
+.nav-rail-segment.w--current .state-layer.default, .nav-rail-segment.w--current .label.small.for-nav.default, .nav-rail-segment.w--current .nav-rail-segment-icon.default, .nav-drawer-segment.w--current .state-layer.default, .nav-drawer-segment.w--current .label.large.for-nav.default {
+    visibility: hidden;
+}
+
+.nav-rail-segment.w--current .state-layer.current, .nav-rail-segment.w--current .label.small.for-nav.current, .nav-rail-segment.w--current .nav-rail-segment-icon.current, .nav-rail-segment.w--current .bg-current-nav-segment, .nav-drawer-segment.w--current .state-layer.current, .nav-drawer-segment.w--current .label.large.for-nav.current, .nav-drawer-segment.w--current .bg-current-nav-segment {
+    visibility: visible;
+}
+
+/* Hide the Lottie animation by default */
+.lottie-hero.dark {
+  display: none;
+}
+
+/* When dark mode is active, show the Lottie animation */
+:root.dark .lottie-hero.dark {
+  display: block;
+}
+
+/* Hide the Lottie animation by default */
+.lottie-hero.light {
+  display: block;
+}
+
+/* When dark mode is active, show the Lottie animation */
+:root.dark .lottie-hero.light {
+  display: none;
+}
+
+.icon-button.theme-toggle:hover .icon-for-icon-button.theme-toggle .material-symbols-rounded {
+    font-variation-settings: 'FILL'1, 'wght'300, 'GRAD'0, 'opsz'20;
+    transition: all 0.2s ease-in-out;
+}
+
+:root.dark .icon-for-icon-button.theme-toggle.dark-icon {
+    transform: translateY(-40px);
+    transition: transform 0.2s ease-in-out;
+}
+
+:root.dark .icon-for-icon-button.theme-toggle.light-icon {
+    transform: translateY(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon-for-icon-button.theme-toggle.dark-icon {
+    transform: translateY(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon-for-icon-button.theme-toggle.light-icon {
+    transform: translateY(40px);
+    transition: transform 0.2s ease-in-out;
+}
+
+:root.dark .project-preview-image, :root.dark .lazy {
+	filter: brightness(90%);
+  	transition: filter .2s ease-out, border-color .2s ease-out, background-color .2s ease-out;
+}
+
+.nav-rail-segment-icon svg {
+	transition: color .2s ease-out;
+}
+
+/* When dark mode is active, show dark image */
+:root.dark .lazy.dark {
+  display: block;
+}
+
+/* When dark mode is active, show dark image */
+:root.dark .lazy.light {
+  display: none;
+}
+
+/* When dark mode is active, show dark image */
+.lazy.dark {
+  display: none;
+}
+
+/* When dark mode is active, show dark image */
+.lazy.light {
+  display: block;
+}
+
+/* Defining color variables for dark theme */
+:root.dark {
+  --pre-loader-main: #121316;
+  --pre-loader-sos: #141316;
+  --pre-loader-t121: #111412;
+  --pre-loader-rhds: #111416;
+  --pre-loader-rhjo: #181212;
+}
+
+/* Defining color variables for light/default theme */
+:root {
+  --pre-loader-main: #DAD9DD;
+  --pre-loader-sos: #DDD9DD;
+  --pre-loader-t121: #D8DBD7;
+  --pre-loader-rhds: #D9DADC;
+  --pre-loader-rhjo: #E4D7D7;
+}
+
+/* Applying variables to the respective classes */
+.pre-loader.main { background-color: var(--pre-loader-main, #121316); }
+.pre-loader.sos { background-color: var(--pre-loader-sos); }
+.pre-loader.t121 { background-color: var(--pre-loader-t121); }
+.pre-loader.rhds { background-color: var(--pre-loader-rhds); }
+.pre-loader.rhjo { background-color: var(--pre-loader-rhjo); }
+
 
 .hero-header {
     pointer-events: none; 
