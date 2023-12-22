@@ -137,10 +137,6 @@ window.addEventListener('scroll', () => {
   lastScrollY = currentScrollY;
 });
 
-// Smooth transitions
-navbar.style.transition = 'transform 0.3s ease-out';
-fab.style.transition = 'transform 0.3s ease-out';
-
 */
 
 //preloader animation
