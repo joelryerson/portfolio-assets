@@ -114,7 +114,7 @@ closeTriggers.forEach(trigger => {
 
 //mobile nav and mobile fab sliding in and out on scroll /////////////////////////////////////////////////
 
-let lastScrollY = window.scrollY;
+/*let lastScrollY = window.scrollY;
 let navbar = document.querySelector('.navbar-mobile');
 let fab = document.querySelector('.fab.fixed');
 
@@ -140,6 +140,8 @@ window.addEventListener('scroll', () => {
 // Smooth transitions
 navbar.style.transition = 'transform 0.3s ease-out';
 fab.style.transition = 'transform 0.3s ease-out';
+
+*/
 
 //preloader animation
 
