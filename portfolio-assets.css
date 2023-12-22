@@ -695,17 +695,19 @@
     visibility: hidden;
 }
 
-.nav-rail-segment.w--current .state-layer.default, .nav-rail-segment.w--current .label.small.for-nav.default, .nav-rail-segment.w--current .nav-rail-segment-icon.default, .nav-drawer-segment.w--current .state-layer.default, .nav-drawer-segment.w--current .label.large.for-nav.default {
+.nav-rail-segment.w--current .state-layer.default, .nav-rail-segment.w--current .label.small.for-nav.default, .nav-rail-segment.w--current .nav-rail-segment-icon.default, .nav-drawer-segment.w--current .state-layer.default, .nav-drawer-segment.w--current .label.large.for-nav.default, .nav-rail-segment.custom-current .state-layer.default, .nav-rail-segment.custom-current .label.small.for-nav.default, .nav-rail-segment.custom-current .nav-rail-segment-icon.default, .nav-drawer-segment.custom-current .state-layer.default, .nav-drawer-segment.custom-current .label.large.for-nav.default {
     visibility: hidden;
 }
 
-.nav-rail-segment.w--current .state-layer.current, .nav-rail-segment.w--current .label.small.for-nav.current, .nav-rail-segment.w--current .nav-rail-segment-icon.current, .nav-rail-segment.w--current .bg-current-nav-segment, .nav-drawer-segment.w--current .state-layer.current, .nav-drawer-segment.w--current .label.large.for-nav.current, .nav-drawer-segment.w--current .bg-current-nav-segment {
+.nav-rail-segment.w--current .state-layer.current, .nav-rail-segment.w--current .label.small.for-nav.current, .nav-rail-segment.w--current .nav-rail-segment-icon.current, .nav-rail-segment.w--current .bg-current-nav-segment, .nav-drawer-segment.w--current .state-layer.current, .nav-drawer-segment.w--current .label.large.for-nav.current, .nav-drawer-segment.w--current .bg-current-nav-segment, .nav-rail-segment.custom-current .state-layer.current, .nav-rail-segment.custom-current .label.small.for-nav.current, .nav-rail-segment.custom-current .nav-rail-segment-icon.current, .nav-rail-segment.custom-current .bg-current-nav-segment, .nav-drawer-segment.custom-current .state-layer.current, .nav-drawer-segment.custom-current .label.large.for-nav.current, .nav-drawer-segment.custom-current .bg-current-nav-segment {
     visibility: visible;
 }
 
 .nav-rail-segment-icon svg {
 	transition: color .2s ease-out;
 }
+
+
 
 /* dark theme toggle button */
 
