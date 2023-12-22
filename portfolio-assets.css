@@ -604,6 +604,17 @@
   font-weight: var(--font-weight-medium);
 }
 
+body {
+  background-color: var(--surface-bright);
+  color: var(--on-surface);
+}
+
+@media only screen and (min-width: 768px) {
+  .process-bg.changing-radius {
+      width: calc(100vw - 88px);
+  }
+}
+
 /* tab link for modals */
 .w-tab-link.w--current {
     background-color: transparent !important;
@@ -687,15 +698,15 @@
 
 /* nav rail and nav drawer styles */
 
-.nav-rail-segment .state-layer.default, .nav-rail-segment .label.small.for-nav.default, .nav-rail-segment .nav-rail-segment-icon.default, .nav-drawer-segment .state-layer.default, .nav-drawer-segment .label.large.for-nav.default {
+.nav-rail-segment .state-layer.default, .nav-rail-segment .label.small.for-nav.default, .nav-rail-segment .nav-rail-segment-icon.default, .nav-drawer-segment .state-layer.default, .nav-drawer-segment .label.large.for-nav.default, .nav-rail-segment .icon.default, .nav-drawer-segment .icon.default {
     visibility: visible;
 }
 
-.nav-rail-segment .state-layer.current, .nav-rail-segment .label.small.for-nav.current, .nav-rail-segment .nav-rail-segment-icon.current, .nav-rail-segment .bg-current-nav-segment, .nav-drawer-segment .state-layer.current, .nav-drawer-segment .label.large.for-nav.current, .nav-drawer-segment .bg-current-nav-segment   {
+.nav-rail-segment .state-layer.current, .nav-rail-segment .label.small.for-nav.current, .nav-rail-segment .nav-rail-segment-icon.current, .nav-rail-segment .bg-current-nav-segment, .nav-drawer-segment .state-layer.current, .nav-drawer-segment .label.large.for-nav.current, .nav-drawer-segment .bg-current-nav-segment, .nav-rail-segment .icon.current, .nav-drawer-segment .icon.current {
     visibility: hidden;
 }
 
-.nav-rail-segment.w--current .state-layer.default, .nav-rail-segment.w--current .label.small.for-nav.default, .nav-rail-segment.w--current .nav-rail-segment-icon.default, .nav-drawer-segment.w--current .state-layer.default, .nav-drawer-segment.w--current .label.large.for-nav.default, .nav-rail-segment.custom-current .state-layer.default, .nav-rail-segment.custom-current .label.small.for-nav.default, .nav-rail-segment.custom-current .nav-rail-segment-icon.default, .nav-drawer-segment.custom-current .state-layer.default, .nav-drawer-segment.custom-current .label.large.for-nav.default {
+.nav-rail-segment.w--current .state-layer.default, .nav-rail-segment.w--current .label.small.for-nav.default, .nav-rail-segment.w--current .nav-rail-segment-icon.default, .nav-drawer-segment.w--current .state-layer.default, .nav-drawer-segment.w--current .label.large.for-nav.default, .nav-rail-segment.custom-current .state-layer.default, .nav-rail-segment.custom-current .label.small.for-nav.default, .nav-rail-segment.custom-current .nav-rail-segment-icon.default, .nav-drawer-segment.custom-current .state-layer.default, .nav-drawer-segment.custom-current .label.large.for-nav.default, .nav-rail-segment .icon.default, .nav-drawer-segment .icon.default {
     visibility: hidden;
 }
 
@@ -703,15 +714,9 @@
     visibility: visible;
 }
 
-.nav-rail-segment-icon svg {
-	transition: color .2s ease-out;
-}
+/* icons for theme toggle icon button and outline button */
 
-
-
-/* dark theme toggle button */
-
-.icon-button.theme-toggle:hover .icon-for-icon-button.theme-toggle .material-symbols-rounded {
+.icon-button.theme-toggle:hover .icon-for-icon-button.theme-toggle .material-symbols-rounded, .button.icon.outline.theme-toggle:hover .icon-for-icon-button.theme-toggle .material-symbols-rounded {
     font-variation-settings: 'FILL'1, 'wght'300, 'GRAD'0, 'opsz'20;
     transition: all 0.2s ease-in-out;
 }
@@ -732,6 +737,28 @@
 }
 
 .icon-for-icon-button.theme-toggle.light-icon {
+    transform: translateY(40px);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* label for theme toggle outline button */
+
+:root.dark .label.theme-toggle.dark-text {
+    transform: translateY(-40px);
+    transition: transform 0.2s ease-in-out;
+}
+
+:root.dark .label.theme-toggle.light-text {
+    transform: translateY(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.label.theme-toggle.dark-text {
+    transform: translateY(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.label.theme-toggle.light-text {
     transform: translateY(40px);
     transition: transform 0.2s ease-in-out;
 }
