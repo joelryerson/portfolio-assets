@@ -794,7 +794,7 @@ body {
 }
 
 :root.dark .card-img.dark {
-  visbility: visible;
+  visibility: visible;
 }
 
 :root.dark .card-img.light {
@@ -806,7 +806,7 @@ body {
 }
 
 .card-img.light {
-  visbility: visible;
+  visibility: visible;
 }
 
 /* Defining color variables for dark theme */
