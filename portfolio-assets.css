@@ -767,7 +767,7 @@ body {
     transition: transform 0.2s ease-in-out;
 }
 
-:root.dark .project-preview-image, :root.dark .lazy {
+:root.dark .hero-image, :root.dark .lazy, :root.dark .card-img {
 	filter: brightness(90%);
   	transition: filter .2s ease-out, border-color .2s ease-out, background-color .2s ease-out;
 }
@@ -777,19 +777,24 @@ body {
   display: block;
 }
 
-/* When dark mode is active, show dark image */
-:root.dark .lazy.light {
+:root.dark .card-img.dark {
+  display: flex;
+}
+
+:root.dark .lazy.light, :root.dark .card-img.light {
   display: none;
 }
 
-/* When dark mode is active, show dark image */
-.lazy.dark {
+.lazy.dark, .card-img.dark {
   display: none;
 }
 
-/* When dark mode is active, show dark image */
 .lazy.light {
   display: block;
+}
+
+.card-img.light {
+  display: flex;
 }
 
 /* Defining color variables for dark theme */
