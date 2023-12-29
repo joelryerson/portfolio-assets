@@ -795,18 +795,27 @@ body {
 
 :root.dark .card-img.dark {
   visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s ease-out; /* Only transition the opacity when becoming visible */
 }
 
 :root.dark .card-img.light {
   visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-out, visibility 0s 0.2s; /* Transition the opacity and delay the visibility change */
+
 }
 
 .card-img.dark {
   visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-out, visibility 0s 0.2s; /* Transition the opacity and delay the visibility change */
 }
 
 .card-img.light {
   visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s ease-out; /* Only transition the opacity when becoming visible */
 }
 
 /* Defining color variables for dark theme */
