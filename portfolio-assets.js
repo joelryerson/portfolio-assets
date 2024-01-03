@@ -137,10 +137,10 @@ window.addEventListener('scroll', () => {
   lastScrollY = currentScrollY;
 });
 
-*/
+
 
 //preloader animation
-
+//no longer needed
 document.addEventListener('DOMContentLoaded', function () {
     // Detect if the browser is Chrome
     const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
         highlightBar();
         setInterval(highlightBar, 2200 / bars.length); // Sync with CSS animation duration
     }
-});
+}); */
 
 //preloader fade out and display to none /////////////////////////////////////////////////
 
@@ -171,7 +171,9 @@ window.addEventListener('load', function () {
         loader.classList.add('fade-out');
 
         loader.addEventListener('animationend', () => {
-            loader.style.display = 'none';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 100);
         });
     } else {
         console.error("Loader element not found.");
