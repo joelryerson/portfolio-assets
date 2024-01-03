@@ -337,6 +337,18 @@ function updateDynamicVariables(targetSection) {
         var newVariableRef = `var(--${sectionOrSlugClass}--${currentTheme}--${variable})`;
         document.documentElement.style.setProperty(`--${variable}`, newVariableRef);
     });
+
+    // Force re-render or reapply styles on the html element
+    forceStylesUpdate();
+}
+
+function forceStylesUpdate() {
+    // Example: Toggle a class on the html element to force reapply styles
+    var htmlElement = document.documentElement;
+    htmlElement.classList.add('force-update');
+    setTimeout(() => {
+        htmlElement.classList.remove('force-update');
+    }, 10);
 }
 
 // debounce functions //////////////////////////////////////////////////////////////////////////////////
