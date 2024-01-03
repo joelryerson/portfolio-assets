@@ -273,6 +273,7 @@ function getCurrentSectionOrSlugClass() {
 
 // Refactored function to apply the theme
 function applyTheme(theme) {
+    console.log('Applying theme:', theme);
     if (theme === 'dark') {
         document.documentElement.classList.add('dark');
     } else {
@@ -326,6 +327,7 @@ let storedStyles = {}; */
 
 
 function updateDynamicVariables(targetSection) {
+    console.log('updateDynamicVariables called with theme:', currentTheme);
     var sectionOrSlugClass = getCurrentSectionOrSlugClass();
     // If a targetSection is provided, use its class for color updates
     if (targetSection) {
