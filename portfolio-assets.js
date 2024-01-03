@@ -407,9 +407,10 @@ document.querySelectorAll('.theme-toggle').forEach(button => {
 
 // System preference change listener for dark mode with debounce
 var handleSystemPreferenceChange = debounce(function(event) {
-    var newTheme = event.matches ? 'dark' : 'light';
-    applyTheme(newTheme);
+    //var newTheme = event.matches ? 'dark' : 'light';
+    //applyTheme(newTheme);
     //updateDynamicVariables();
+    toggleTheme();
 }, 250); // 250 milliseconds
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleSystemPreferenceChange);
