@@ -409,7 +409,7 @@ document.querySelectorAll('.theme-toggle').forEach(button => {
 var handleSystemPreferenceChange = debounce(function(event) {
     var newTheme = event.matches ? 'dark' : 'light';
     applyTheme(newTheme);
-    updateDynamicVariables();
+    //updateDynamicVariables();
 }, 250); // 250 milliseconds
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleSystemPreferenceChange);
