@@ -179,17 +179,19 @@ window.addEventListener('load', function () {
 });
 
 
-document.querySelectorAll('.delayed-link').forEach(function (link) {
-    link.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default immediate navigation
+if (window.innerWidth >= 768) {
+    document.querySelectorAll('.delayed-link').forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default immediate navigation
 
-        var destinationUrl = this.getAttribute('href'); // Get the URL from the link's href attribute
+            var destinationUrl = this.getAttribute('href'); // Get the URL from the link's href attribute
 
-        setTimeout(function () {
-            window.location.href = destinationUrl; // Navigate to the URL after the delay
-        }, 500); // Delay in milliseconds (1000ms = 1 second)
+            setTimeout(function () {
+                window.location.href = destinationUrl; // Navigate to the URL after the delay
+            }, 500); // Delay in milliseconds (1000ms = 1 second)
+        });
     });
-});
+}
 
 
 
