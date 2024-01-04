@@ -173,7 +173,7 @@ window.addEventListener('load', function () {
         loader.addEventListener('animationend', () => {
             setTimeout(() => {
                 loader.style.display = 'none';
-            }, 100);
+            }, 250);
         });
     } else {
         console.error("Loader element not found.");
@@ -189,7 +189,7 @@ document.querySelectorAll('.delayed-link').forEach(function (link) {
 
         setTimeout(function () {
             window.location.href = destinationUrl; // Navigate to the URL after the delay
-        }, 500); // Delay in milliseconds (1000ms = 1 second)
+        }, 250); // Delay in milliseconds (1000ms = 1 second)
     });
 });
 
