@@ -171,9 +171,9 @@ window.addEventListener('load', function () {
         loader.classList.add('fade-out');
 
         loader.addEventListener('animationend', () => {
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 250);
+            loader.style.display = 'none';
+            loader.classList.remove('fade-out');
+            loader.classList.remove('loader-fade-in'); // Remove fade-in if it's there
         });
     } else {
         console.error("Loader element not found.");
@@ -187,11 +187,10 @@ document.querySelectorAll('.delayed-link').forEach(function (link) {
 
         const loader = document.getElementById('loader');
         if (loader) {
-            // Apply the fade-in animation
+            loader.classList.remove('fade-out'); // Remove fade-out if it's there
             loader.classList.add('loader-fade-in');
-            loader.style.display = 'flex'; // Or 'block', depending on your layout
+            loader.style.display = 'flex'; // Or 'block', as per your layout
 
-            // Wait for the animation to complete before navigating
             setTimeout(function () {
                 window.location.href = destinationUrl;
             }, 500); // This should match the duration of the fade-in animation
@@ -202,8 +201,22 @@ document.querySelectorAll('.delayed-link').forEach(function (link) {
 });
 
 
+/*window.addEventListener('load', function () {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        loader.classList.add('fade-out');
 
-/*document.querySelectorAll('.delayed-link').forEach(function (link) {
+        loader.addEventListener('animationend', () => {
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 250);
+        });
+    } else {
+        console.error("Loader element not found.");
+    }
+});
+
+document.querySelectorAll('.delayed-link').forEach(function (link) {
     link.addEventListener('click', function (event) {
         event.preventDefault(); // Prevent the default immediate navigation
 
