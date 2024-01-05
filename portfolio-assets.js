@@ -171,42 +171,6 @@ window.addEventListener('load', function () {
         loader.classList.add('fade-out');
 
         loader.addEventListener('animationend', () => {
-            loader.style.display = 'none';
-            loader.classList.remove('fade-out');
-            loader.classList.remove('loader-fade-in'); // Remove fade-in if it's there
-        });
-    } else {
-        console.error("Loader element not found.");
-    }
-});
-
-document.querySelectorAll('.delayed-link').forEach(function (link) {
-    link.addEventListener('click', function (event) {
-        event.preventDefault();
-        var destinationUrl = this.getAttribute('href');
-
-        const loader = document.getElementById('loader');
-        if (loader) {
-            loader.classList.remove('fade-out'); // Remove fade-out if it's there
-            loader.classList.add('loader-fade-in');
-            loader.style.display = 'flex'; // Or 'block', as per your layout
-
-            setTimeout(function () {
-                window.location.href = destinationUrl;
-            }, 500); // This should match the duration of the fade-in animation
-        } else {
-            console.error("Loader element not found.");
-        }
-    });
-});
-
-
-/*window.addEventListener('load', function () {
-    const loader = document.getElementById('loader');
-    if (loader) {
-        loader.classList.add('fade-out');
-
-        loader.addEventListener('animationend', () => {
             setTimeout(() => {
                 loader.style.display = 'none';
             }, 250);
@@ -226,7 +190,7 @@ document.querySelectorAll('.delayed-link').forEach(function (link) {
             window.location.href = destinationUrl; // Navigate to the URL after the delay
         }, 500); // Delay in milliseconds (1000ms = 1 second)
     });
-});*/
+});
 
 
 
