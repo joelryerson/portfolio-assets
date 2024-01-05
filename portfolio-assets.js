@@ -182,20 +182,25 @@ window.addEventListener('load', function () {
 
 document.querySelectorAll('.delayed-link').forEach(function (link) {
     link.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default immediate navigation
+        event.preventDefault();
+        var destinationUrl = this.getAttribute('href');
 
-        var destinationUrl = this.getAttribute('href'); // Get the URL from the link's href attribute
+        const loader = document.getElementById('loader');
+        if (loader) {
+            // Apply the fade-in animation
+            loader.classList.add('loader-fade-in');
+            loader.style.display = 'flex'; // Or 'block', depending on your layout
 
-        // Show the preloader
-        document.getElementById('loader').style.display = 'flex'; 
-
-        setTimeout(function () {
-            // Hide the preloader right before changing the page
-            document.getElementById('loader').style.display = 'none';
-            window.location.href = destinationUrl; // Navigate to the URL after the delay
-        }, 500); // Delay in milliseconds (500ms = 0.5 second)
+            // Wait for the animation to complete before navigating
+            setTimeout(function () {
+                window.location.href = destinationUrl;
+            }, 500); // This should match the duration of the fade-in animation
+        } else {
+            console.error("Loader element not found.");
+        }
     });
 });
+
 
 
 /*document.querySelectorAll('.delayed-link').forEach(function (link) {
