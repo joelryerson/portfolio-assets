@@ -188,7 +188,7 @@ document.querySelectorAll('.delayed-link').forEach(function (link) {
 
         setTimeout(function () {
             window.location.href = destinationUrl; // Navigate to the URL after the delay
-        }, 500); // Delay in milliseconds (1000ms = 1 second)
+        }, 250); // Delay in milliseconds (1000ms = 1 second)
     });
 });
 
