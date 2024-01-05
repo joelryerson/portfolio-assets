@@ -187,7 +187,7 @@ document.querySelectorAll('.delayed-link').forEach(function (link) {
         var destinationUrl = this.getAttribute('href'); // Get the URL from the link's href attribute
 
         // Show the preloader
-        document.getElementById('loader').style.display = 'block'; 
+        document.getElementById('loader').style.display = 'flex'; 
 
         setTimeout(function () {
             // Hide the preloader right before changing the page
